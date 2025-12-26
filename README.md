@@ -1,68 +1,64 @@
 Amazites – Analizador de Seguridad de Página Web
+Descripción
 
-🔹 Descripción
-
-Amazites es un script en Python que analiza una sola página web y genera un reporte de seguridad.
+Amazites es un script en Python diseñado para analizar una sola página web y generar un reporte completo de seguridad.
 
 Funciones principales:
 
-Verifica si la página usa HTTPS.
+Verifica si la página utiliza HTTPS.
 
-Comprueba si están presentes las cabeceras de seguridad importantes (Content-Security-Policy, X-Frame-Options, etc.).
+Comprueba la presencia de cabeceras de seguridad importantes (como Content-Security-Policy o X-Frame-Options).
 
-Detecta errores visibles en la página (ej. SQL, Traceback, Fatal Error).
+Detecta errores visibles en la página (como SQL errors, Tracebacks o Fatal Error).
 
-Detecta frameworks web populares: WordPress, Laravel, Django, React, Vue.
+Identifica frameworks web populares, incluyendo WordPress, Laravel, Django, React y Vue.
 
-Detecta si la página tiene un WAF (Cloudflare, Sucuri, Akamai, AWS WAF).
+Detecta la presencia de WAFs (Cloudflare, Sucuri, Akamai, AWS WAF).
 
-Genera un reporte JSON con todos los hallazgos en la carpeta reports/.
+Genera un reporte JSON con todos los hallazgos dentro de la carpeta reports/.
 
-La salida en terminal es en color verde para mejor visibilidad.
+La salida en terminal se muestra en verde para facilitar la lectura.
 
-🔹 Requisitos
+Requisitos
 
-Python 3.10+
+Python 3.10 o superior
 
 Sistema operativo: Linux, macOS o Windows
 
 Librerías Python: requests, beautifulsoup4, rich
 
-🔹 Instalación
+Instalación
 
 Clonar el repositorio
 
 git clone https://github.com/tu-usuario/amazites.git
+
 cd amazites
 
-
-Crear un entorno virtual (opcional pero recomendado)
+Crear un entorno virtual (opcional, pero recomendado)
 
 python3 -m venv amazites_env
 source amazites_env/bin/activate
 
-
-Instalar dependencias
+Instalar las dependencias
 
 pip install -r requirements.txt
 
-
-Si no tienes requirements.txt, puedes crear uno con:
+Si no cuentas con requirements.txt, puedes crear uno con:
 
 requests
 beautifulsoup4
 rich
 
-🔹 Uso
+Uso
 
-Analizar una página web:
+Para analizar una página web, ejecuta:
 
 python amazites.py -u https://example.com
 
+-u o --url indica la URL de la página que deseas analizar.
 
--u o --url: URL de la página a analizar.
-
-Ejemplo de salida en terminal (toda en verde):
+Ejemplo de salida en terminal:
 
 Amazites analizando https://example.com
 
@@ -74,32 +70,24 @@ Score de seguridad: 3
 
 Reporte guardado: reports/amazites_example.com_20251226_123456.json
 
-🔹 Reporte
+Reporte
 
-Todos los análisis se guardan en la carpeta reports/ como JSON.
+Todos los análisis se guardan en la carpeta reports/ como archivos JSON.
 
-Ejemplo de archivo generado:
-
-reports/amazites_example.com_20251226_123456.json
-
+Ejemplo de archivo generado: reports/amazites_example.com_20251226_123456.json
 
 Para abrirlo:
 
-En terminal:
+En terminal: cat reports/amazites_example.com_20251226_123456.json | less
 
-cat reports/amazites_example.com_20251226_123456.json | less
+En navegador: arrastra el archivo JSON a tu navegador favorito para revisarlo de forma cómoda.
 
-
-En navegador:
-
-Arrastra el archivo JSON a tu navegador favorito para revisarlo de forma más cómoda.
-
-🔹 Contribuciones
+Contribuciones
 
 Se aceptan contribuciones para:
 
-Añadir soporte de más frameworks y WAFs.
+Añadir soporte para más frameworks y WAFs.
 
 Mejorar la visualización en terminal (tablas, colores, dashboards).
 
-Agregar generación de reportes HTML interactivos.
+Generar reportes HTML interactivos
